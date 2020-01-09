@@ -29,6 +29,7 @@ export default class PaypalCommerceButtonStrategy implements CheckoutButtonStrat
         }
 
         state = await this._store.dispatch(this._checkoutActionCreator.loadDefaultCheckout());
+
         const cart = state.cart.getCartOrThrow();
         const paypalOptions = options.paypalCommerce;
 
