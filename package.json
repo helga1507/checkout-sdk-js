@@ -93,12 +93,12 @@
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.1.2",
     "tslint": "^5.18.0",
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.15.7",
     "typescript": "^3.6.3",
     "webpack": "^4.41.0",
     "webpack-assets-manifest": "^3.1.1",
     "webpack-bundle-analyzer": "^3.5.1",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   }
 }
