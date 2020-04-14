@@ -12,43 +12,35 @@ describe('OverlayPaypal', () => {
         const element = document.getElementById(idOverlay);
 
         if (element) {
-            element.parentElement!.removeChild(element);
+            element.remove();
         }
     });
 
-    it('shows modal element with styles', () => {
+    it('shows modal element', () => {
         overlay.show();
 
         const modal: HTMLElement | null = document.querySelector(`#${idOverlay} .paypal-commerce-overlay_modal`);
 
         expect(modal).toBeTruthy();
-        expect(modal!.style.position).toEqual('fixed');
-        expect(modal!.style.top).toEqual('50%');
-        expect(modal!.style.left).toEqual('50%');
-        expect(modal!.style.transform).toEqual('translate(-50%, -50%)');
-        expect(modal!.style.color).toEqual('white');
-        expect(modal!.style.maxWidth).toEqual('330px');
-        expect(modal!.style.fontSize).toEqual('1.3em');
-
     });
 
-    it('shows text element with styles', () => {
+    it('shows text element', () => {
         overlay.show();
 
         const text: HTMLElement | null = document.querySelector(`#${idOverlay} .paypal-commerce-overlay_text`);
 
         expect(text).toBeTruthy();
-        expect(text!.innerText).toBeTruthy();
+        expect(text!.innerText).toBe('Don\'t see the secure PayPal browser? We\'ll help you re-launch the window to complete your flow. You might need to enable pop-ups in your browser in order to continue.');
     });
 
-    it('shows link element with styles', () => {
+    it('shows link element', () => {
         overlay.show();
 
         const link: HTMLElement | null = document.querySelector(`#${idOverlay} .paypal-commerce-overlay_link`);
 
         expect(link).toBeTruthy();
-        expect(link!.innerText).toBeTruthy();
-        expect(link!.style.marginTop).toEqual('15px');
+        expect(link!.innerText).toBe('Continue');
+        expect(link!.hasAttribute('href')).toBe(false);
     });
 });
 // tslint:enable:no-non-null-assertion

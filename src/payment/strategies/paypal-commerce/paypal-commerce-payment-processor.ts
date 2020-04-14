@@ -2,6 +2,9 @@ import { MissingDataError, MissingDataErrorType } from '../../../common/error/er
 
 import { OverlayPaypal } from './index';
 
+const modalWidth = 450;
+const modalHeight = 600;
+
 export default class PaypalCommercePaymentProcessor {
     private _window = window;
     private _popup?: Window | null;
@@ -36,13 +39,12 @@ export default class PaypalCommercePaymentProcessor {
             };
 
             this._window.addEventListener('message', handlerMessage);
-
-            const params = `
-                left=${Math.round((window.screen.height - 450) / 2)},
-                top=${Math.round((window.screen.width - 600) / 2)},
-                height=600,width=450,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no
+            const paramsModalWindow = `
+                left=${Math.round((window.screen.height - modalWidth) / 2)},
+                top=${Math.round((window.screen.width - modalHeight) / 2)},
+                height=${modalHeight},width=${modalWidth},status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no
             `;
-            this._popup = this._window.open(approveUrl, 'PPFrame', params);
+            this._popup = this._window.open(approveUrl, 'PPFrame', paramsModalWindow);
 
             const popupTick = setInterval(() => {
                 if (!this._popup || this._popup.closed) {
@@ -53,11 +55,7 @@ export default class PaypalCommercePaymentProcessor {
             }, 500);
 
             this._overlay.show({
-                onClick: () => {
-                    this._popup
-                        ? this._popup.focus()
-                        : closeWindow(false);
-                },
+                onClick: () => this._popup ? this._popup.focus() : closeWindow(false),
             });
         });
     }

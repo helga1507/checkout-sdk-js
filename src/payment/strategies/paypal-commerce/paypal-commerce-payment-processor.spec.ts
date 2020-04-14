@@ -10,17 +10,13 @@ describe('PaypalCommercePaymentProcessor', () => {
     const close = jest.fn();
 
     beforeEach(() => {
-        window.open = jest.fn(() => {
-            return { focus, close };
-        });
+        window.open = jest.fn();
 
         overlay = new OverlayPaypal();
         paypalCommercePaymentProcessor = new PaypalCommercePaymentProcessor(overlay);
     });
 
     it('call window.open', async () => {
-        window.open = jest.fn();
-
         try {
             await paypalCommercePaymentProcessor.paymentPayPal('approveUrl');
         } catch (error) {
@@ -29,8 +25,6 @@ describe('PaypalCommercePaymentProcessor', () => {
     });
 
     it('throw error when window closed', async () => {
-        window.open = jest.fn();
-
         try {
             await paypalCommercePaymentProcessor.paymentPayPal('approveUrl');
         } catch (error) {
@@ -39,6 +33,7 @@ describe('PaypalCommercePaymentProcessor', () => {
     });
 
     it('check event listener on message', async () => {
+        window.open = jest.fn(() => ({ focus, close }));
         const map: {[key: string]: any}  = {};
 
         window.addEventListener = jest.fn((event, cb) => {
