@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.57.1-alpha.e511f61f7dbe850324f2a40e8b884fd316c7d716](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.57.0...v1.57.1-alpha.e511f61f7dbe850324f2a40e8b884fd316c7d716) (2020-04-15)
+
+
+### Features
+
+* **payment:** PAYPAL-140 Add currency, change params to load paypal commerce script ([eb3ac94](https://github.com/bigcommerce/checkout-sdk-js/commit/eb3ac94))
+* **payment:** PAYPAL-140 Changes for pr ([67bab04](https://github.com/bigcommerce/checkout-sdk-js/commit/67bab04))
+* **payment:** PAYPAL-140 Check cart, add kebabCase to script loader ([0e0e33c](https://github.com/bigcommerce/checkout-sdk-js/commit/0e0e33c))
+* **payment:** PAYPAL-140 Move clientId from options to paymentMethod ([3332a0e](https://github.com/bigcommerce/checkout-sdk-js/commit/3332a0e))
+* **payment:** PAYPAL-140 Render paypal buttons with paypal sdk ([ef02163](https://github.com/bigcommerce/checkout-sdk-js/commit/ef02163))
+* **payment:** PAYPAL-140 Write tests on the render PaypalCommerce buttons ([967ab62](https://github.com/bigcommerce/checkout-sdk-js/commit/967ab62))
+* **payment:** PAYPAL-159 Post order data and redirect customer to checkout page after onApprove callback ([4d040e0](https://github.com/bigcommerce/checkout-sdk-js/commit/4d040e0))
+* **payment:** PAYPAL-200 Changes for PR ([015bbe6](https://github.com/bigcommerce/checkout-sdk-js/commit/015bbe6))
+* **payment:** PAYPAL-200 Create order request to bcapp ([0538018](https://github.com/bigcommerce/checkout-sdk-js/commit/0538018))
+* **payment:** PAYPAL-200 Edit tests and add check data in payment-buttons ([2c03540](https://github.com/bigcommerce/checkout-sdk-js/commit/2c03540))
+* **payment:** PAYPAL-221 Edit tests ([55c64ef](https://github.com/bigcommerce/checkout-sdk-js/commit/55c64ef))
+* **payment:** PAYPAL-221 Pass all needed params to paypal SDK ([6bb5f57](https://github.com/bigcommerce/checkout-sdk-js/commit/6bb5f57))
+* **payment:** PAYPAL-227 Pass params to SDK and theme settings to PP script ([977ebdb](https://github.com/bigcommerce/checkout-sdk-js/commit/977ebdb))
+* **payment:** PAYPAL-265 Changes for pr ([e511f61](https://github.com/bigcommerce/checkout-sdk-js/commit/e511f61))
+* **payment:** PAYPAL-265 Markup flow ([f438b51](https://github.com/bigcommerce/checkout-sdk-js/commit/f438b51))
+* **payment:** PAYPAL-276 Change header in createOrder request ([6810fed](https://github.com/bigcommerce/checkout-sdk-js/commit/6810fed))
+* **payment:** PAYPAL-288 Disable Credit/Debit card SPB ([c0d692d](https://github.com/bigcommerce/checkout-sdk-js/commit/c0d692d))
+
 ## [1.57.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.56.2...v1.57.0) (2020-03-26)
 
 
