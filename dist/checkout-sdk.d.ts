@@ -636,6 +636,11 @@ declare interface CheckoutButtonInitializeOptions extends CheckoutButtonOptions 
      */
     paypal?: PaypalButtonInitializeOptions;
     /**
+     * The options that are required to facilitate PayPal Commerce. They can be omitted
+     * unless you need to support Paypal.
+     */
+    paypalCommerce?: PaypalCommerceButtonInitializeOptions;
+    /**
      * The ID of a container which the checkout button should be inserted.
      */
     containerId: string;
@@ -752,7 +757,8 @@ declare enum CheckoutButtonMethodType {
     GOOGLEPAY_BRAINTREE = "googlepaybraintree",
     GOOGLEPAY_STRIPE = "googlepaystripe",
     MASTERPASS = "masterpass",
-    PAYPALEXPRESS = "paypalexpress"
+    PAYPALEXPRESS = "paypalexpress",
+    PAYPALCOMMERCE = "paypalcommerce"
 }
 
 /**
@@ -833,6 +839,7 @@ declare class CheckoutService {
     private _paymentStrategyActionCreator;
     private _shippingCountryActionCreator;
     private _shippingStrategyActionCreator;
+    private _signInEmailActionCreator;
     private _spamProtectionActionCreator;
     private _storeCreditActionCreator;
     private _subscriptionsActionCreator;
@@ -1917,6 +1924,12 @@ declare interface CheckoutStoreErrorSelector {
      * @returns The error object if unable to load, otherwise undefined.
      */
     getLoadConfigError(): Error | undefined;
+    /**
+     * Returns an error if unable to send sign-in email.
+     *
+     * @returns The error object if unable to send email, otherwise undefined.
+     */
+    getSignInEmailError(): Error | undefined;
 }
 
 /**
@@ -1944,6 +1957,12 @@ declare interface CheckoutStoreSelector {
      * @returns The configuration object if it is loaded, otherwise undefined.
      */
     getConfig(): StoreConfig | undefined;
+    /**
+     * Gets the sign-in email.
+     *
+     * @returns The sign-in email object if sent, otherwise undefined
+     */
+    getSignInEmail(): SignInEmail | undefined;
     /**
      * Gets the shipping address of the current checkout.
      *
@@ -2328,6 +2347,12 @@ declare interface CheckoutStoreStatusSelector {
      * @returns True if removing a coupon code, otherwise false.
      */
     isRemovingCoupon(): boolean;
+    /**
+     * Checks whether a sign-in email is being sent.
+     *
+     * @returns True if sending a sign-in email, otherwise false
+     */
+    isSendingSignInEmail(): boolean;
     /**
      * Checks whether the current customer is applying a gift certificate.
      *
@@ -2894,6 +2919,8 @@ declare type HostedFieldBlurEventData = HostedInputBlurEvent['payload'];
 
 declare type HostedFieldCardTypeChangeEventData = HostedInputCardTypeChangeEvent['payload'];
 
+declare type HostedFieldEnterEventData = HostedInputEnterEvent['payload'];
+
 declare type HostedFieldFocusEventData = HostedInputFocusEvent['payload'];
 
 declare type HostedFieldOptionsMap = HostedCardFieldOptionsMap | HostedStoredCardFieldOptionsMap;
@@ -2922,6 +2949,7 @@ declare interface HostedFormOptions {
     styles?: HostedFieldStylesMap;
     onBlur?(data: HostedFieldBlurEventData): void;
     onCardTypeChange?(data: HostedFieldCardTypeChangeEventData): void;
+    onEnter?(data: HostedFieldEnterEventData): void;
     onFocus?(data: HostedFieldFocusEventData): void;
     onValidate?(data: HostedFieldValidateEventData): void;
 }
@@ -2940,6 +2968,13 @@ declare interface HostedInputCardTypeChangeEvent {
     };
 }
 
+declare interface HostedInputEnterEvent {
+    type: HostedInputEventType.Entered;
+    payload: {
+        fieldType: HostedFieldType;
+    };
+}
+
 declare enum HostedInputEventType {
     AttachSucceeded = "HOSTED_INPUT:ATTACH_SUCCEEDED",
     AttachFailed = "HOSTED_INPUT:ATTACH_FAILED",
@@ -2947,6 +2982,7 @@ declare enum HostedInputEventType {
     Blurred = "HOSTED_INPUT:BLURRED",
     Changed = "HOSTED_INPUT:CHANGED",
     CardTypeChanged = "HOSTED_INPUT:CARD_TYPE_CHANGED",
+    Entered = "HOSTED_INPUT:ENTERED",
     Focused = "HOSTED_INPUT:FOCUSED",
     SubmitSucceeded = "HOSTED_INPUT:SUBMIT_SUCCEEDED",
     SubmitFailed = "HOSTED_INPUT:SUBMIT_FAILED",
@@ -3559,6 +3595,22 @@ declare interface PaypalButtonStyleOptions {
     fundingicons?: boolean;
 }
 
+declare interface PaypalButtonStyleOptions_2 {
+    layout?: StyleButtonLayout;
+    color?: StyleButtonColor;
+    shape?: StyleButtonShape;
+    height?: 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55;
+    label?: StyleButtonLabel;
+    tagline?: boolean;
+}
+
+declare interface PaypalCommerceButtonInitializeOptions {
+    /**
+     * A set of styling options for the checkout button.
+     */
+    style?: PaypalButtonStyleOptions_2;
+}
+
 declare interface PaypalExpressPaymentInitializeOptions {
     useRedirectFlow?: boolean;
 }
@@ -3694,6 +3746,11 @@ declare interface ShopperConfig {
 declare interface ShopperCurrency extends StoreCurrency {
     exchangeRate: number;
     isTransactional: boolean;
+}
+
+declare interface SignInEmail {
+    sent_email: string;
+    expiry: number;
 }
 
 /**
@@ -3887,6 +3944,32 @@ declare interface StripeV3PaymentInitializeOptions {
      * The set of CSS styles to apply to all form fields.
      */
     style?: StripeStyleProps;
+}
+
+declare enum StyleButtonColor {
+    gold = "gold",
+    blue = "blue",
+    silver = "silver",
+    black = "black",
+    white = "white"
+}
+
+declare enum StyleButtonLabel {
+    paypal = "paypal",
+    checkout = "checkout",
+    buynow = "buynow",
+    pay = "pay",
+    installment = "installment"
+}
+
+declare enum StyleButtonLayout {
+    vertical = "vertical",
+    horizontal = "horizontal"
+}
+
+declare enum StyleButtonShape {
+    pill = "pill",
+    rect = "rect"
 }
 
 declare interface StyleOptions {
