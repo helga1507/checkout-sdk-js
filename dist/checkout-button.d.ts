@@ -208,7 +208,8 @@ declare enum CheckoutButtonMethodType {
     GOOGLEPAY_BRAINTREE = "googlepaybraintree",
     GOOGLEPAY_STRIPE = "googlepaystripe",
     MASTERPASS = "masterpass",
-    PAYPALEXPRESS = "paypalexpress"
+    PAYPALEXPRESS = "paypalexpress",
+    PAYPALCOMMERCE = "paypalcommerce"
 }
 
 /**
