@@ -92,6 +92,11 @@ declare interface CheckoutButtonInitializeOptions extends CheckoutButtonOptions 
      */
     paypal?: PaypalButtonInitializeOptions;
     /**
+     * The options that are required to facilitate PayPal Commerce. They can be omitted
+     * unless you need to support Paypal.
+     */
+    paypalCommerce?: PaypalCommerceButtonInitializeOptions;
+    /**
      * The ID of a container which the checkout button should be inserted.
      */
     containerId: string;
@@ -289,6 +294,9 @@ declare interface PaypalButtonStyleOptions {
     shape?: 'pill' | 'rect';
     tagline?: boolean;
     fundingicons?: boolean;
+}
+
+declare interface PaypalCommerceButtonInitializeOptions {
 }
 
 /**
