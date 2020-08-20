@@ -1,8 +1,10 @@
+import zoid from 'zoid';
+
 import { MissingDataError, MissingDataErrorType } from '../../../common/error/errors';
 import { Overlay } from '../../../common/overlay';
 
-const modalWidth = 450;
-const modalHeight = 600;
+const modalWidth = '450px';
+const modalHeight = '600px';
 
 export interface ProcessorOptions {
     overlay?: {
@@ -11,9 +13,13 @@ export interface ProcessorOptions {
     };
 }
 
+// interface CheckoutPropsType {
+//     createOrder(): string;
+// }
+
 export default class PaypalCommercePaymentProcessor {
     private _window = window;
-    private _popup?: WindowProxy | null;
+    private _popup?: any;
     private _overlay?: Overlay;
 
     constructor() {}
@@ -24,13 +30,13 @@ export default class PaypalCommercePaymentProcessor {
 
     paymentPayPal(approveUrl: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
-            const paramsWindow =  this._getParamsWindow();
+            // const paramsWindow =  this._getParamsWindow();
 
             const closeWindow = (isResolve: boolean, isRemoveOverlay: boolean = true) => {
                 this._window.removeEventListener('message', messageHandler);
 
                 if (this._popup) {
-                    this._popup.close();
+                    // this._popup.close();
                     this._popup = undefined;
                 }
 
@@ -57,20 +63,80 @@ export default class PaypalCommercePaymentProcessor {
             };
 
             this._window.addEventListener('message', messageHandler);
-            this._popup = this._window.open(approveUrl, 'PPFrame', paramsWindow);
+            this._popup = zoid.create({
+                defaultContext: 'popup',
+                tag: 'paypal-checkout',
+                domain: /\.paypal\.com(:\d+)?$/,
+                url: approveUrl,
+                dimensions: { width: modalWidth, height: modalHeight },
+                props: {
+                    onApprove: {
+                        type: 'function',
+                        alias: 'onAuthorize',
+                        value: () => {
+                            console.warn('onAuthorize!!');
+                        },
+                    },
+                },
+                containerTemplate: ({ close, focus, frame, prerenderFrame }) => {
+                    const element = document.createElement('div');
+                    element.id = 'checkoutOverlayContainer';
+                    const closeElement = document.createElement('div');
+                    closeElement.innerText = 'Close';
+                    closeElement.addEventListener('click', close);
+                    element.style.background = 'rgba(0, 0, 0, 0.8)';
+                    element.style.position = 'absolute';
+                    element.style.width = '100%';
+                    element.style.height = '100%';
+                    element.style.zIndex = '100%';
+                    const inner = document.createElement('div');
+                    inner.addEventListener('click', focus);
+                    const innerText = this._getOverlayElements();
 
-            const popupTick = setInterval(() => {
-                if (!this._popup || this._popup.closed) {
-                    clearInterval(popupTick);
+                    inner.appendChild(innerText);
+                    element.appendChild(inner);
+                    element.appendChild(closeElement);
 
-                    closeWindow(false);
-                }
-            }, 500);
+                    if (frame) {
+                        element.appendChild(frame);
+                    }
+                    if (prerenderFrame) {
+                        element.appendChild(prerenderFrame);
+                    }
+
+                    return element;
+                },
+            })({
+                onAuthorize: () => {
+                    console.log('onAuthorizeonAuthorizeonAuthorizeonAuthorize');
+                },
+                onApprove: () => {
+                    console.log('onApproveonApproveonApprove');
+                },
+            });
+            console.log('this._popup', this._popup);
+
+            this._popup.render();
+            // this._popup.renderTo(window.parent, {
+            //     onApprove: () => {
+            //         console.log('onAuthorizeonAuthorizeonAuthorizeonAuthorize');
+            //     },
+            // });
+            console.log('this._popup', this._popup);
+            // this._popup = this._window.open(approveUrl, 'PPFrame', paramsWindow);
+
+            // const popupTick = setInterval(() => {
+            //     if (!this._popup || this._popup.closed) {
+            //         clearInterval(popupTick);
+            //
+            //         closeWindow(false);
+            //     }
+            // }, 500);
 
             if (this._overlay) {
                 this._overlay.show({
-                    onClick: () => this._popup ? this._popup.focus() : closeWindow(false),
-                    onClickClose: () => closeWindow(false, false),
+                    onClick: () => this._popup && this._popup.focus(),
+                    onClickClose: () => closeWindow(false),
                 });
             }
         });
@@ -101,11 +167,11 @@ export default class PaypalCommercePaymentProcessor {
         return fragment;
     }
 
-    private _getParamsWindow(): string {
-        return `
-            left=${Math.round((window.screen.height - modalWidth) / 2)},
-            top=${Math.round((window.screen.width - modalHeight) / 2)},
-            height=${modalHeight},width=${modalWidth},status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no
-        `;
-    }
+    // private _getParamsWindow(): string {
+    //     return `
+    //         left=${Math.round((window.screen.height - modalWidth) / 2)},
+    //         top=${Math.round((window.screen.width - modalHeight) / 2)},
+    //         height=${modalHeight},width=${modalWidth},status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no
+    //     `;
+    // }
 }
