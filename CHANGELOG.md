@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.93.28-alpha.c15da961e39f28a5cd2eb1662979ab84f078ed12](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.93.28-alpha.6b49a86dd8c428f812d8003a652a5107552262cb...v1.93.28-alpha.c15da961e39f28a5cd2eb1662979ab84f078ed12) (2020-08-31)
+
+
+### Features
+
+* **payments:** PAYPAL-654 add button for paypal checkout ([c15da96](https://github.com/bigcommerce/checkout-sdk-js/commit/c15da961e39f28a5cd2eb1662979ab84f078ed12))
+
 ### [1.93.28-alpha.6b49a86dd8c428f812d8003a652a5107552262cb](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.93.27-alpha.edbe46bc103636b4803231c6d6cf8d41fdcb5c96...v1.93.28-alpha.6b49a86dd8c428f812d8003a652a5107552262cb) (2020-08-28)
 
 ### [1.93.27-alpha.edbe46bc103636b4803231c6d6cf8d41fdcb5c96](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.93.25-alpha.6a25e326657259c0274429fe4ebc7f34a53a1079...v1.93.27-alpha.edbe46bc103636b4803231c6d6cf8d41fdcb5c96) (2020-08-28)
