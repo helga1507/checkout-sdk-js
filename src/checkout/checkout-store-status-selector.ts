@@ -335,6 +335,8 @@ export default interface CheckoutStoreStatusSelector {
      * @returns True if updating subscriptions, otherwise false.
      */
     isUpdatingSubscriptions(): boolean;
+
+    isBlockingSubmitButton(): boolean;
 }
 
 export type CheckoutStoreStatusSelectorFactory = (state: InternalCheckoutSelectors) => CheckoutStoreStatusSelector;
@@ -415,6 +417,13 @@ export function createCheckoutStoreStatusSelectorFactory(): CheckoutStoreStatusS
         }
     );
 
+    const isBlockingSubmitButton = createSelector(
+        ({ paymentStrategies }: InternalCheckoutSelectors) => paymentStrategies.isApproveAccount,
+        isApproveAccount => (methodId?: string) => {
+            return isApproveAccount(methodId);
+        }
+    );
+
     return memoizeOne((
         state: InternalCheckoutSelectors
     ): CheckoutStoreStatusSelector => {
@@ -456,6 +465,7 @@ export function createCheckoutStoreStatusSelectorFactory(): CheckoutStoreStatusS
             isCustomerStepPending: isCustomerStepPending(state),
             isShippingStepPending: isShippingStepPending(state),
             isPaymentStepPending: isPaymentStepPending(state),
+            isBlockingSubmitButton: isBlockingSubmitButton(state),
         };
 
         return {

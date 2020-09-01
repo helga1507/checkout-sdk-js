@@ -3,4 +3,5 @@ export default interface PaypalCommercePaymentInitializeOptions {
         helpText?: string;
         continueText?: string;
     };
+    container?: string;
 }

@@ -20,6 +20,7 @@ order and waiting for the request to complete.
 * [isApplyingCoupon](checkoutstorestatusselector.md#isapplyingcoupon)
 * [isApplyingGiftCertificate](checkoutstorestatusselector.md#isapplyinggiftcertificate)
 * [isApplyingStoreCredit](checkoutstorestatusselector.md#isapplyingstorecredit)
+* [isBlockingSubmitButton](checkoutstorestatusselector.md#isblockingsubmitbutton)
 * [isContinuingAsGuest](checkoutstorestatusselector.md#iscontinuingasguest)
 * [isCreatingConsignments](checkoutstorestatusselector.md#iscreatingconsignments)
 * [isCustomerStepPending](checkoutstorestatusselector.md#iscustomersteppending)
@@ -91,6 +92,14 @@ Checks whether the current customer is applying store credit.
 **Returns:** *boolean*
 
 True if applying store credit, otherwise false.
+
+___
+
+###  isBlockingSubmitButton
+
+▸ **isBlockingSubmitButton**(): *boolean*
+
+**Returns:** *boolean*
 
 ___
 

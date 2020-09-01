@@ -14,6 +14,7 @@ export default interface PaymentStrategySelector {
     isExecuting(methodId?: string): boolean;
     isFinalizing(methodId?: string): boolean;
     isWidgetInteracting(methodId?: string): boolean;
+    isApproveAccount(methodId?: string): boolean;
 }
 
 export type PaymentStrategySelectorFactory = (state: PaymentStrategyState) => PaymentStrategySelector;
@@ -125,6 +126,18 @@ export function createPaymentStrategySelectorFactory(): PaymentStrategySelectorF
         }
     );
 
+    const isApproveAccount = createSelector(
+        (state: PaymentStrategyState) => state.statuses.approvedAccountMethodId,
+        (state: PaymentStrategyState) => state.statuses.isApprovingAccount,
+        (approvedAccountMethodId, isApprovingAccount) => (methodId?: string) => {
+            if (methodId && approvedAccountMethodId !== methodId) {
+                return false;
+            }
+
+            return !!isApprovingAccount;
+        }
+    );
+
     return memoizeOne((
         state: PaymentStrategyState = DEFAULT_STATE
     ): PaymentStrategySelector => {
@@ -138,6 +151,7 @@ export function createPaymentStrategySelectorFactory(): PaymentStrategySelectorF
             isExecuting: isExecuting(state),
             isFinalizing: isFinalizing(state),
             isWidgetInteracting: isWidgetInteracting(state),
+            isApproveAccount: isApproveAccount(state),
         };
     });
 }

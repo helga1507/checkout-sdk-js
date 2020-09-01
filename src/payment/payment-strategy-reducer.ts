@@ -112,6 +112,19 @@ function errorsReducer(
             widgetInteractionMethodId: action.meta.methodId,
         });
 
+    case PaymentStrategyActionType.ApproveAccountStarted:
+    case PaymentStrategyActionType.ApproveAccountFinished:
+        return objectMerge(errors, {
+            approveAccountError: undefined,
+            approvedAccountMethodId: undefined,
+        });
+
+    case PaymentStrategyActionType.ApproveAccountFailed:
+        return objectMerge(errors, {
+            approveAccountError: action.payload,
+            approvedAccountMethodId: action.meta.methodId,
+        });
+
     default:
         return errors;
     }
@@ -185,6 +198,19 @@ function statusesReducer(
         return objectMerge(statuses, {
             isWidgetInteracting: false,
             widgetInteractionMethodId: undefined,
+        });
+
+    case PaymentStrategyActionType.ApproveAccountStarted:
+        return objectMerge(statuses, {
+            isApprovingAccount: true,
+            approvedAccountMethodId: action.meta.methodId,
+        });
+
+    case PaymentStrategyActionType.ApproveAccountFinished:
+    case PaymentStrategyActionType.ApproveAccountFailed:
+        return objectMerge(statuses, {
+            isApprovingAccount: false,
+            approvedAccountMethodId: undefined,
         });
 
     default:
