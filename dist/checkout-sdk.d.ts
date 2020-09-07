@@ -537,6 +537,14 @@ declare interface BodyStyles {
     backgroundColor?: string;
 }
 
+declare interface BoltPaymentInitializeOptions {
+    /**
+     * When true, BigCommerce's checkout will be used
+     * otherwise Bolt's full checkout take over will be assumed
+     */
+    useBigCommerceCheckout?: boolean;
+}
+
 declare interface BraintreeError extends Error {
     type: 'CUSTOMER' | 'MERCHANT' | 'NETWORK' | 'INTERNAL' | 'UNKNOWN';
     code: string;
@@ -2546,6 +2554,16 @@ declare interface CheckoutStoreStatusSelector {
      */
     isInitializingPayment(methodId?: string): boolean;
     /**
+     * Checks whether a specific or any payment method is initializing.
+     *
+     * The method returns true if no ID is provided and at least one payment
+     * method is initializing.
+     *
+     * @param methodId - The identifier of the payment method to check.
+     * @returns True if the payment method is initializing, otherwise false.
+     */
+    isShowEmbeddedSubmitButton(methodId?: string): boolean;
+    /**
      * Checks whether the current customer is signing in.
      *
      * If an ID is provided, the method also checks whether the customer is
@@ -3853,6 +3871,11 @@ declare interface PaymentInitializeOptions extends PaymentRequestOptions {
      */
     bluesnapv2?: BlueSnapV2PaymentInitializeOptions;
     /**
+     * The options that allow Bolt to load the client script and handle the checkout.
+     * They can be omitted if Bolt's full checkout take over is intended.
+     */
+    bolt?: BoltPaymentInitializeOptions;
+    /**
      * The options that are required to initialize the Braintree payment method.
      * They can be omitted unless you need to support Braintree.
      */
@@ -4111,10 +4134,7 @@ declare interface PaypalCommerceFormOptions {
 }
 
 declare interface PaypalCommercePaymentInitializeOptions {
-    overlay?: {
-        helpText?: string;
-        continueText?: string;
-    };
+    container?: string;
     /**
      * @alpha
      * Please note that this option is currently in an early stage of
@@ -4122,6 +4142,7 @@ declare interface PaypalCommercePaymentInitializeOptions {
      * consumption.
      */
     form?: PaypalCommerceFormOptions;
+    submitForm?(): void | undefined;
 }
 
 declare interface PaypalCommerceStoredCardFieldOptions extends PaypalCommerceFormFieldOptions {
