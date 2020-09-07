@@ -114,6 +114,17 @@ export default interface CheckoutStoreStatusSelector {
     isInitializingPayment(methodId?: string): boolean;
 
     /**
+     * Checks whether a specific or any payment method is initializing.
+     *
+     * The method returns true if no ID is provided and at least one payment
+     * method is initializing.
+     *
+     * @param methodId - The identifier of the payment method to check.
+     * @returns True if the payment method is initializing, otherwise false.
+     */
+    isShowEmbeddedSubmitButton(methodId?: string): boolean;
+
+    /**
      * Checks whether the current customer is signing in.
      *
      * If an ID is provided, the method also checks whether the customer is
@@ -415,6 +426,13 @@ export function createCheckoutStoreStatusSelectorFactory(): CheckoutStoreStatusS
         }
     );
 
+    const isShowEmbeddedSubmitButton = createSelector(
+        ({ paymentStrategies }: InternalCheckoutSelectors) => paymentStrategies.isShowEmbeddedSubmitButton,
+        isShowEmbeddedSubmitButton => (methodId?: string) => {
+            return isShowEmbeddedSubmitButton(methodId);
+        }
+    );
+
     return memoizeOne((
         state: InternalCheckoutSelectors
     ): CheckoutStoreStatusSelector => {
@@ -456,6 +474,7 @@ export function createCheckoutStoreStatusSelectorFactory(): CheckoutStoreStatusS
             isCustomerStepPending: isCustomerStepPending(state),
             isShippingStepPending: isShippingStepPending(state),
             isPaymentStepPending: isPaymentStepPending(state),
+            isShowEmbeddedSubmitButton: isShowEmbeddedSubmitButton(state),
         };
 
         return {

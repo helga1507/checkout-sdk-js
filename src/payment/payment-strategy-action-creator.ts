@@ -11,7 +11,7 @@ import { OrderFinalizationNotRequiredError } from '../order/errors';
 import { SpamProtectionAction, SpamProtectionActionCreator } from '../spam-protection';
 
 import { PaymentInitializeOptions, PaymentRequestOptions } from './payment-request-options';
-import { PaymentStrategyActionType, PaymentStrategyDeinitializeAction, PaymentStrategyExecuteAction, PaymentStrategyFinalizeAction, PaymentStrategyInitializeAction, PaymentStrategyWidgetAction } from './payment-strategy-actions';
+import { PaymentStrategyActionType, PaymentStrategyDeinitializeAction, PaymentStrategyEmbeddedSubmitButton, PaymentStrategyExecuteAction, PaymentStrategyFinalizeAction, PaymentStrategyInitializeAction, PaymentStrategyWidgetAction } from './payment-strategy-actions';
 import PaymentStrategyRegistry from './payment-strategy-registry';
 import PaymentStrategyType from './payment-strategy-type';
 import { PaymentStrategy } from './strategies';
@@ -146,6 +146,20 @@ export default class PaymentStrategyActionCreator {
             )
         ).pipe(
             catchError(error => throwErrorAction(PaymentStrategyActionType.WidgetInteractionFailed, error, meta))
+        );
+    }
+
+    embeddedSubmitButton(method: () => Promise<any>, options?: { methodId: string | undefined }): Observable<PaymentStrategyEmbeddedSubmitButton> {
+        const methodId = options && options.methodId;
+        const meta = { methodId };
+
+        return concat(
+            of(createAction(PaymentStrategyActionType.EmbeddedSubmitButtonStarted, undefined, meta)),
+            defer(() =>
+                method().then(() => createAction(PaymentStrategyActionType.EmbeddedSubmitButtonFinished, undefined, meta))
+            )
+        ).pipe(
+            catchError(error => throwErrorAction(PaymentStrategyActionType.EmbeddedSubmitButtonFailed, error, meta))
         );
     }
 

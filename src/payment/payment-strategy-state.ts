@@ -21,6 +21,8 @@ export interface PaymentStrategyErrorsState {
     initializeMethodId?: string;
     widgetInteractionError?: Error;
     widgetInteractionMethodId?: string;
+    embeddedSubmitButtonError?: Error;
+    embeddedSubmitButtonMethodId?: string;
 }
 
 export interface PaymentStrategyStatusesState {
@@ -34,6 +36,8 @@ export interface PaymentStrategyStatusesState {
     isInitializing?: boolean;
     isWidgetInteracting?: boolean;
     widgetInteractionMethodId?: string;
+    isEmbeddedSubmitButton?: boolean;
+    embeddedSubmitButtonMethodId?: string;
 }
 
 export const DEFAULT_STATE: PaymentStrategyState = {
