@@ -1,8 +1,5 @@
 export interface PaypalCommercePaymentInitializeOptions {
-    overlay?: {
-        helpText?: string;
-        continueText?: string;
-    };
+    container?: string;
 
     /**
      * @alpha
@@ -11,6 +8,7 @@ export interface PaypalCommercePaymentInitializeOptions {
      * consumption.
      */
     form?: PaypalCommerceFormOptions;
+    submitForm?(): void | undefined;
 }
 
 export interface PaypalCommerceFormOptions {

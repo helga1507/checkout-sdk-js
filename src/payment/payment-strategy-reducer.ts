@@ -112,6 +112,19 @@ function errorsReducer(
             widgetInteractionMethodId: action.meta.methodId,
         });
 
+    case PaymentStrategyActionType.EmbeddedSubmitButtonStarted:
+    case PaymentStrategyActionType.EmbeddedSubmitButtonFinished:
+        return objectMerge(errors, {
+            embeddedSubmitButtonError: undefined,
+            embeddedSubmitButtonMethodId: undefined,
+        });
+
+    case PaymentStrategyActionType.EmbeddedSubmitButtonFailed:
+        return objectMerge(errors, {
+            embeddedSubmitButtonError: action.payload,
+            embeddedSubmitButtonMethodId: action.meta.methodId,
+        });
+
     default:
         return errors;
     }
@@ -185,6 +198,19 @@ function statusesReducer(
         return objectMerge(statuses, {
             isWidgetInteracting: false,
             widgetInteractionMethodId: undefined,
+        });
+
+    case PaymentStrategyActionType.EmbeddedSubmitButtonStarted:
+        return objectMerge(statuses, {
+            isEmbeddedSubmitButton: true,
+            embeddedSubmitButtonMethodId: action.meta.methodId,
+        });
+
+    case PaymentStrategyActionType.EmbeddedSubmitButtonFinished:
+    case PaymentStrategyActionType.EmbeddedSubmitButtonFailed:
+        return objectMerge(statuses, {
+            isEmbeddedSubmitButton: false,
+            embeddedSubmitButtonMethodId: undefined,
         });
 
     default:
