@@ -10,10 +10,20 @@
 
 ### Properties
 
+* [container](paypalcommercepaymentinitializeoptions.md#optional-container)
 * [form](paypalcommercepaymentinitializeoptions.md#optional-form)
-* [overlay](paypalcommercepaymentinitializeoptions.md#optional-overlay)
+
+### Methods
+
+* [submitForm](paypalcommercepaymentinitializeoptions.md#optional-submitform)
 
 ## Properties
+
+### `Optional` container
+
+• **container**? : *undefined | string*
+
+___
 
 ### `Optional` form
 
@@ -24,8 +34,10 @@ Please note that this option is currently in an early stage of
 development. Therefore the API is unstable and not ready for public
 consumption.
 
-___
+## Methods
 
-### `Optional` overlay
+### `Optional` submitForm
 
-• **overlay**? : *undefined | object*
+▸ **submitForm**(): *void | undefined*
+
+**Returns:** *void | undefined*

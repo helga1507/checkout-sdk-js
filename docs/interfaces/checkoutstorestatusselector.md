@@ -47,6 +47,7 @@ order and waiting for the request to complete.
 * [isSelectingShippingOption](checkoutstorestatusselector.md#isselectingshippingoption)
 * [isSendingSignInEmail](checkoutstorestatusselector.md#issendingsigninemail)
 * [isShippingStepPending](checkoutstorestatusselector.md#isshippingsteppending)
+* [isShowEmbeddedSubmitButton](checkoutstorestatusselector.md#isshowembeddedsubmitbutton)
 * [isSigningIn](checkoutstorestatusselector.md#issigningin)
 * [isSigningOut](checkoutstorestatusselector.md#issigningout)
 * [isSubmittingOrder](checkoutstorestatusselector.md#issubmittingorder)
@@ -492,6 +493,27 @@ interacting with a shipping widget.
 **Returns:** *boolean*
 
 True if the shipping step is pending, otherwise false.
+
+___
+
+###  isShowEmbeddedSubmitButton
+
+▸ **isShowEmbeddedSubmitButton**(`methodId?`: undefined | string): *boolean*
+
+Checks whether a specific or any payment method is initializing.
+
+The method returns true if no ID is provided and at least one payment
+method is initializing.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`methodId?` | undefined &#124; string | The identifier of the payment method to check. |
+
+**Returns:** *boolean*
+
+True if the payment method is initializing, otherwise false.
 
 ___
 
