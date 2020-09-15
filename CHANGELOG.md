@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.97.2-alpha.acf67bb291041037e9902d62792917fcaab19b4a](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.97.1...v1.97.2-alpha.acf67bb291041037e9902d62792917fcaab19b4a) (2020-09-15)
+
+
+### Features
+
+* **checkout:** INT-3112 Merge Bolt strategies ([25e0c7d](https://github.com/bigcommerce/checkout-sdk-js/commit/25e0c7db01ef4f97766177046838c232057a4ddf))
+* **payment:** PAYPAL-654 Changes for PR ([acf67bb](https://github.com/bigcommerce/checkout-sdk-js/commit/acf67bb291041037e9902d62792917fcaab19b4a))
+* **payment:** PAYPAL-654 Spb checkout ([fa2ea33](https://github.com/bigcommerce/checkout-sdk-js/commit/fa2ea33792f955a35d1ccbc3cfd36f7b02d9ca4d))
+* **payment:** PAYPAL-654 Take out paypal script to processor ([ad459ed](https://github.com/bigcommerce/checkout-sdk-js/commit/ad459ed72ff79f5f9a53f154f5e19bba60cb04d3))
+* **payment:** PAYPAL-654 Tests ([36962f6](https://github.com/bigcommerce/checkout-sdk-js/commit/36962f6c6cad86a01285a3876dd8c6169bb44dde))
+
 ### [1.97.1](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.97.0...v1.97.1) (2020-09-07)
 
 ## [1.97.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.96.0...v1.97.0) (2020-09-04)

@@ -10,10 +10,21 @@
 
 ### Properties
 
+* [container](paypalcommercepaymentinitializeoptions.md#optional-container)
 * [form](paypalcommercepaymentinitializeoptions.md#optional-form)
-* [overlay](paypalcommercepaymentinitializeoptions.md#optional-overlay)
+* [style](paypalcommercepaymentinitializeoptions.md#optional-style)
+
+### Methods
+
+* [submitForm](paypalcommercepaymentinitializeoptions.md#optional-submitform)
 
 ## Properties
+
+### `Optional` container
+
+• **container**? : *undefined | string*
+
+___
 
 ### `Optional` form
 
@@ -26,6 +37,14 @@ consumption.
 
 ___
 
-### `Optional` overlay
+### `Optional` style
 
-• **overlay**? : *undefined | object*
+• **style**? : *[PaypalButtonStyleOptions](paypalbuttonstyleoptions.md)*
+
+## Methods
+
+### `Optional` submitForm
+
+▸ **submitForm**(): *void*
+
+**Returns:** *void*

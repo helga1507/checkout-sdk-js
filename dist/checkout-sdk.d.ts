@@ -537,6 +537,14 @@ declare interface BodyStyles {
     backgroundColor?: string;
 }
 
+declare interface BoltPaymentInitializeOptions {
+    /**
+     * When true, BigCommerce's checkout will be used
+     * otherwise Bolt's full checkout take over will be assumed
+     */
+    useBigCommerceCheckout?: boolean;
+}
+
 declare interface BraintreeError extends Error {
     type: 'CUSTOMER' | 'MERCHANT' | 'NETWORK' | 'INTERNAL' | 'UNKNOWN';
     code: string;
@@ -635,7 +643,7 @@ declare interface BraintreePaypalButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: Pick<PaypalButtonStyleOptions, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
+    style?: Pick<PaypalButtonStyleOptions_2, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
     /**
      * Whether or not to show a credit button.
      */
@@ -2448,6 +2456,13 @@ declare interface CheckoutStoreSelector {
      * otherwise undefined.
      */
     getShippingAddressFields(countryCode: string): FormField[];
+    /**
+     * Checks render a embedded submit button instead standard
+     *
+     * @param methodId - The identifier of the payment method to check.
+     * @returns True if should hide submitting form button and render embedded button.
+     */
+    isShowEmbeddedSubmitButton(methodId?: string): boolean;
 }
 
 /**
@@ -3853,6 +3868,11 @@ declare interface PaymentInitializeOptions extends PaymentRequestOptions {
      */
     bluesnapv2?: BlueSnapV2PaymentInitializeOptions;
     /**
+     * The options that allow Bolt to load the client script and handle the checkout.
+     * They can be omitted if Bolt's full checkout take over is intended.
+     */
+    bolt?: BoltPaymentInitializeOptions;
+    /**
      * The options that are required to initialize the Braintree payment method.
      * They can be omitted unless you need to support Braintree.
      */
@@ -3998,7 +4018,7 @@ declare interface PaypalButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: Pick<PaypalButtonStyleOptions, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
+    style?: Pick<PaypalButtonStyleOptions_2, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
     /**
      * A callback that gets called if unable to authorize and tokenize payment.
      *
@@ -4014,6 +4034,15 @@ declare interface PaypalButtonInitializeOptions {
 }
 
 declare interface PaypalButtonStyleOptions {
+    layout?: StyleButtonLayout;
+    color?: StyleButtonColor;
+    shape?: StyleButtonShape;
+    height?: 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55;
+    label?: StyleButtonLabel;
+    tagline?: boolean;
+}
+
+declare interface PaypalButtonStyleOptions_2 {
     layout?: 'horizontal' | 'vertical';
     size?: 'small' | 'medium' | 'large' | 'responsive';
     color?: 'gold' | 'blue' | 'silver' | 'black';
@@ -4023,20 +4052,11 @@ declare interface PaypalButtonStyleOptions {
     fundingicons?: boolean;
 }
 
-declare interface PaypalButtonStyleOptions_2 {
-    layout?: StyleButtonLayout;
-    color?: StyleButtonColor;
-    shape?: StyleButtonShape;
-    height?: 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55;
-    label?: StyleButtonLabel;
-    tagline?: boolean;
-}
-
 declare interface PaypalCommerceButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: PaypalButtonStyleOptions_2;
+    style?: PaypalButtonStyleOptions;
 }
 
 declare type PaypalCommerceFormFieldBlurEventData = PaypalCommerceFormFieldKeyboardEventData;
@@ -4111,10 +4131,7 @@ declare interface PaypalCommerceFormOptions {
 }
 
 declare interface PaypalCommercePaymentInitializeOptions {
-    overlay?: {
-        helpText?: string;
-        continueText?: string;
-    };
+    container?: string;
     /**
      * @alpha
      * Please note that this option is currently in an early stage of
@@ -4122,6 +4139,8 @@ declare interface PaypalCommercePaymentInitializeOptions {
      * consumption.
      */
     form?: PaypalCommerceFormOptions;
+    style?: PaypalButtonStyleOptions;
+    submitForm?(): void;
 }
 
 declare interface PaypalCommerceStoredCardFieldOptions extends PaypalCommerceFormFieldOptions {

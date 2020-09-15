@@ -39,6 +39,7 @@ checkout information, such as shipping and billing details.
 * [getSignInEmail](checkoutstoreselector.md#getsigninemail)
 * [isPaymentDataRequired](checkoutstoreselector.md#ispaymentdatarequired)
 * [isPaymentDataSubmitted](checkoutstoreselector.md#ispaymentdatasubmitted)
+* [isShowEmbeddedSubmitButton](checkoutstoreselector.md#isshowembeddedsubmitbutton)
 
 ## Methods
 
@@ -414,3 +415,21 @@ Name | Type | Description |
 **Returns:** *boolean*
 
 True if payment data is submitted, otherwise false.
+
+___
+
+###  isShowEmbeddedSubmitButton
+
+▸ **isShowEmbeddedSubmitButton**(`methodId?`: undefined | string): *boolean*
+
+Checks render a embedded submit button instead standard
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`methodId?` | undefined &#124; string | The identifier of the payment method to check. |
+
+**Returns:** *boolean*
+
+True if should hide submitting form button and render embedded button.
