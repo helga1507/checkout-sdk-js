@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.101.1-alpha.c6e210941ccb924db3caa6ee547383038091229d](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.97.1...v1.101.1-alpha.c6e210941ccb924db3caa6ee547383038091229d) (2020-09-24)
+
+
+### Features
+
+* **checkout:** INT-2779 Add vaulting support for Orbital ([a58c700](https://github.com/bigcommerce/checkout-sdk-js/commit/a58c700fc79abaf1da821e0cb58fb977f728e4ea))
+* **checkout:** INT-3112 Merge Bolt strategies ([25e0c7d](https://github.com/bigcommerce/checkout-sdk-js/commit/25e0c7db01ef4f97766177046838c232057a4ddf))
+* **payment:** INT-3027 Implementing client key ([e95bf66](https://github.com/bigcommerce/checkout-sdk-js/commit/e95bf66fe6ac5e42a85030268dd5b8a5094ecd9f))
+* **payment:** INT-3061 added mandate field on order interface ([c8c542b](https://github.com/bigcommerce/checkout-sdk-js/commit/c8c542b0e9f486905b4a2fe99ae12287b107aad4))
+* **payment:** PAYPAL-553 3ds for PayPal ([c6e2109](https://github.com/bigcommerce/checkout-sdk-js/commit/c6e210941ccb924db3caa6ee547383038091229d))
+* **payment:** PAYPAL-654 Add callback and disable submit button ([1f2fc79](https://github.com/bigcommerce/checkout-sdk-js/commit/1f2fc7999f75f143b39c2c4abf316bb3d45ca150))
+* **payment:** PAYPAL-654 Add hidePaymentButton instead EmbeddedSubmitButton ([b57cd2b](https://github.com/bigcommerce/checkout-sdk-js/commit/b57cd2b2ed28169f4c642c96d0688202597e8a17))
+* **payment:** PAYPAL-654 Changes for PR ([c31a459](https://github.com/bigcommerce/checkout-sdk-js/commit/c31a459c7f789e4bf2f8d8dbae7028cfe2bf523f))
+* **payment:** PAYPAL-654 Changes for PR ([aad6632](https://github.com/bigcommerce/checkout-sdk-js/commit/aad6632c9ad5717be136aa8801526c45f380db19))
+* **payment:** PAYPAL-654 Remove EmbeddedSubmitButton ([71f9937](https://github.com/bigcommerce/checkout-sdk-js/commit/71f99374dfcdbe1c665ec86fab133eabfaf77929))
+* **payment:** PAYPAL-654 Rename hidePaymentButton to onRenderButton ([71d34d2](https://github.com/bigcommerce/checkout-sdk-js/commit/71d34d2a5ad1ab5b15770d907487904ff4918112))
+* **payment:** PAYPAL-654 Spb checkout ([8f7b9a7](https://github.com/bigcommerce/checkout-sdk-js/commit/8f7b9a74ee923ae69d1debbc7b0bcdafe29dda9a))
+* **payment:** PAYPAL-654 Take out paypal script to processor ([87a0902](https://github.com/bigcommerce/checkout-sdk-js/commit/87a09026518ab3f2a88fdef25e980beff5bfbf97))
+* **payment:** PAYPAL-654 Tests ([f348dfc](https://github.com/bigcommerce/checkout-sdk-js/commit/f348dfc07e50d05ccadac2b1659fdbb578e3a187))
+* **payment:** PAYPAL-705 add messaging for PayPal banners ([d35ea9b](https://github.com/bigcommerce/checkout-sdk-js/commit/d35ea9be7a8eb7517811f266ae57825e84c81310))
+* **payment:** PAYPAL-705 enable banners along with credit + tests ([8f110af](https://github.com/bigcommerce/checkout-sdk-js/commit/8f110af6a1624778741bdf4e317be7d20c6a5376))
+
+
+### Bug Fixes
+
+* **payment:** CHECKOUT-5135 Fix onValidate callback not getting called with correct error type and not getting called when tokenize returns validation error ([307c44d](https://github.com/bigcommerce/checkout-sdk-js/commit/307c44daaf32e437988ce4569ed58377bccb7860))
+* **payment:** CHECKOUT-5135 Reset Braintree hosted form initialisation state ([fe606c0](https://github.com/bigcommerce/checkout-sdk-js/commit/fe606c05cf0a1f67030efc4911eb474914f45f6e))
+
 ## [1.101.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.100.0...v1.101.0) (2020-09-22)
 
 
