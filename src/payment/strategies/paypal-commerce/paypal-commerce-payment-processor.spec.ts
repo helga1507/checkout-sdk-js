@@ -23,7 +23,7 @@ describe('PaypalCommercePaymentProcessor', () => {
     let cart: Cart;
     let containers: HTMLElement[];
     let render: () => void;
-    let submit: () => ({ orderId: string });
+    let submit: () => ({ orderId: string; liabilityShifted: boolean });
     let orderID: string;
     let fundingSource: string;
 
@@ -47,7 +47,7 @@ describe('PaypalCommercePaymentProcessor', () => {
         fundingSource = 'paypal';
         initOptions = { options: { clientId: 'clientId' } };
         cart = { ...getCart() };
-        submit = jest.fn(() => ({ orderId: orderID }));
+        submit = jest.fn(() => ({ orderId: orderID, liabilityShifted: true }));
 
         cardFields = {
             submit,
@@ -92,20 +92,6 @@ describe('PaypalCommercePaymentProcessor', () => {
                     isEligible: () => true,
                 };
             });
-
-        // jest.spyOn(paypal, 'HostedFields')
-        //     .mockImplementation((options: PaypalCommerceHostedFieldsRenderOptions) => {
-        //         eventEmitter.on('createOrder', () => {
-        //             if (options.createOrder) {
-        //                 options.createOrder();
-        //             }
-        //         });
-        //
-        //         return {
-        //             render: jest.fn(() => Promise.resolve(cardFields)),
-        //             isEligible: () => true,
-        //         };
-        //     });
 
         jest.spyOn(paypalScriptLoader, 'loadPaypalCommerce')
             .mockReturnValue(Promise.resolve(paypal));
