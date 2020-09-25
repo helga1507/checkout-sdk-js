@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.101.1-alpha.fddc8f9479739c972bf5598ff91f71d9eecad902](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.101.0...v1.101.1-alpha.fddc8f9479739c972bf5598ff91f71d9eecad902) (2020-09-25)
+
+
+### Features
+
+* **payment:** PAYPAL-553 3ds for PayPal ([c6e2109](https://github.com/bigcommerce/checkout-sdk-js/commit/c6e210941ccb924db3caa6ee547383038091229d))
+* **payment:** PAYPAL-553 Change check of liabilityShift ([fddc8f9](https://github.com/bigcommerce/checkout-sdk-js/commit/fddc8f9479739c972bf5598ff91f71d9eecad902))
+* **payment:** PAYPAL-553 Change keys of liabilityShift ([1a9ebeb](https://github.com/bigcommerce/checkout-sdk-js/commit/1a9ebeb957ddb960c5894c1617187f719b9c67f0))
+
 ## [1.101.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.100.0...v1.101.0) (2020-09-22)
 
 
