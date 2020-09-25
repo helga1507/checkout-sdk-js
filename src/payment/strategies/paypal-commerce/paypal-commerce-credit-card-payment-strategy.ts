@@ -36,7 +36,7 @@ export default class PaypalCommerceCreditCardPaymentStrategy implements PaymentS
             attr: { clientToken },
         };
 
-        this._is3dsEnabled = is3dsEnabled;
+        this._is3dsEnabled = is3dsEnabled || true;
 
         await this._paypalCommerceHostedForm.initialize(paypalcommerce.form, cartId, paramsScript);
 
