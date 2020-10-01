@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.104.1-alpha.4305cfd14a30abc381d2617a10fe47c78a89932e](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.101.0...v1.104.1-alpha.4305cfd14a30abc381d2617a10fe47c78a89932e) (2020-10-01)
+
+
+### Features
+
+* **payment:** INT-3086 Support mounting individual card fields on StripeV3 ([2fc46a8](https://github.com/bigcommerce/checkout-sdk-js/commit/2fc46a8e9196b4f1f096f5b35672454662b05a97))
+* **payment:** PAYPAL-553 3ds for PayPal ([#988](https://github.com/bigcommerce/checkout-sdk-js/issues/988)) ([a9d9fa8](https://github.com/bigcommerce/checkout-sdk-js/commit/a9d9fa86820c2df6ffb5192b9c4ac4f0a34588ca))
+* **payment:** PAYPAL-675 Upgrade to 3DS v2 Braintree ([f1417cf](https://github.com/bigcommerce/checkout-sdk-js/commit/f1417cfaf0af27c7a32cac13bdfa725cbfa1fbf7))
+* **payment:** PAYPAL-675 Upgrade to 3DS v2 Braintree ([58b187d](https://github.com/bigcommerce/checkout-sdk-js/commit/58b187d9ae393c63b9408986c850dbe12eabb9d5))
+
+
+### Bug Fixes
+
+* **payment:** PAYPAL-726 Switch payment methods ([4305cfd](https://github.com/bigcommerce/checkout-sdk-js/commit/4305cfd14a30abc381d2617a10fe47c78a89932e))
+
 ## [1.104.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.103.0...v1.104.0) (2020-09-30)
 
 
