@@ -4170,6 +4170,7 @@ declare type PaypalCommerceInitializeOptions = PaypalCommercePaymentInitializeOp
 declare interface PaypalCommercePaymentInitializeOptions {
     container: string;
     style?: PaypalButtonStyleOptions;
+    onValidate(resolve: () => void, reject: () => void): Promise<void>;
     submitForm(): void;
     onRenderButton?(): void;
 }
