@@ -831,7 +831,7 @@ declare interface BraintreePaypalButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: Pick<PaypalButtonStyleOptions_2, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
+    style?: Pick<PaypalButtonStyleOptions, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
     /**
      * Whether or not to show a credit button.
      */
@@ -4466,7 +4466,7 @@ declare interface PaypalButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: Pick<PaypalButtonStyleOptions_2, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
+    style?: Pick<PaypalButtonStyleOptions, 'layout' | 'size' | 'color' | 'label' | 'shape' | 'tagline' | 'fundingicons'>;
     /**
      * A callback that gets called if unable to authorize and tokenize payment.
      *
@@ -4482,15 +4482,6 @@ declare interface PaypalButtonInitializeOptions {
 }
 
 declare interface PaypalButtonStyleOptions {
-    layout?: StyleButtonLayout;
-    color?: StyleButtonColor;
-    shape?: StyleButtonShape;
-    height?: 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55;
-    label?: StyleButtonLabel;
-    tagline?: boolean;
-}
-
-declare interface PaypalButtonStyleOptions_2 {
     layout?: 'horizontal' | 'vertical';
     size?: 'small' | 'medium' | 'large' | 'responsive';
     color?: 'gold' | 'blue' | 'silver' | 'black';
@@ -4500,11 +4491,20 @@ declare interface PaypalButtonStyleOptions_2 {
     fundingicons?: boolean;
 }
 
+declare interface PaypalButtonStyleOptions_2 {
+    layout?: StyleButtonLayout;
+    color?: StyleButtonColor;
+    shape?: StyleButtonShape;
+    height?: 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55;
+    label?: StyleButtonLabel;
+    tagline?: boolean;
+}
+
 declare interface PaypalCommerceButtonInitializeOptions {
     /**
      * A set of styling options for the checkout button.
      */
-    style?: PaypalButtonStyleOptions;
+    style?: PaypalButtonStyleOptions_2;
     /**
      * Container id for messaging banner container
      */
@@ -4692,7 +4692,6 @@ declare type PaypalCommerceInitializeOptions = PaypalCommercePaymentInitializeOp
  */
 declare interface PaypalCommercePaymentInitializeOptions {
     container: string;
-    style?: PaypalButtonStyleOptions;
     onValidate(resolve: () => void, reject: () => void): Promise<void>;
     submitForm(): void;
     onRenderButton?(): void;
