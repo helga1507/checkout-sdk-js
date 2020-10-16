@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.107.1-alpha.c84828eca57ac9942ca389c54550b693ea636bef](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.101.0...v1.107.1-alpha.c84828eca57ac9942ca389c54550b693ea636bef) (2020-10-16)
+
+
+### Features
+
+* **payment:** INT-3061 renamed mandate field to mandateUrl on order interface ([1e4099c](https://github.com/bigcommerce/checkout-sdk-js/commit/1e4099c9df3751ee5009a7cd121bac4e17bc9401))
+* **payment:** INT-3086 Support mounting individual card fields on StripeV3 ([2fc46a8](https://github.com/bigcommerce/checkout-sdk-js/commit/2fc46a8e9196b4f1f096f5b35672454662b05a97))
+* **payment:** PAYPAL-553 3ds for PayPal ([#988](https://github.com/bigcommerce/checkout-sdk-js/issues/988)) ([a9d9fa8](https://github.com/bigcommerce/checkout-sdk-js/commit/a9d9fa86820c2df6ffb5192b9c4ac4f0a34588ca))
+* **payment:** PAYPAL-675 Upgrade to 3DS v2 Braintree ([f1417cf](https://github.com/bigcommerce/checkout-sdk-js/commit/f1417cfaf0af27c7a32cac13bdfa725cbfa1fbf7))
+* **payment:** PAYPAL-675 Upgrade to 3DS v2 Braintree ([58b187d](https://github.com/bigcommerce/checkout-sdk-js/commit/58b187d9ae393c63b9408986c850dbe12eabb9d5))
+* **payment:** PAYPAL-706 Add validate before using spb ([3c02031](https://github.com/bigcommerce/checkout-sdk-js/commit/3c020315d5148b9048626d444fcbe9031fd4a42c))
+* **payment:** PAYPAL-734 Change credit to paylater ([#994](https://github.com/bigcommerce/checkout-sdk-js/issues/994)) ([7a64bc1](https://github.com/bigcommerce/checkout-sdk-js/commit/7a64bc1733b7926535f72e2a6339da9ed5233e21))
+
+
+### Bug Fixes
+
+* **checkout:** DATA-6891 missing transactions ([51a0740](https://github.com/bigcommerce/checkout-sdk-js/commit/51a07403b403df05cc3b0b2fcc6dd56372146ef7))
+* **order:** CHECKOUT-4639 Send discounted price when tracking analytics ([cea959f](https://github.com/bigcommerce/checkout-sdk-js/commit/cea959f8d15fa5afc2a327f0dee1441adff80234))
+* **payment:** PAYPAL-202 fix validation ([a5aa5fb](https://github.com/bigcommerce/checkout-sdk-js/commit/a5aa5fb1e46b57fd9591f62506bd3ec876697cf0))
+* **payment:** PAYPAL-726 Switch payment methods ([4305cfd](https://github.com/bigcommerce/checkout-sdk-js/commit/4305cfd14a30abc381d2617a10fe47c78a89932e))
+* **payment:** PAYPAL-766 Changes for PR ([c84828e](https://github.com/bigcommerce/checkout-sdk-js/commit/c84828eca57ac9942ca389c54550b693ea636bef))
+* **payment:** PAYPAL-766 Validate cc before submit order ([0324e2f](https://github.com/bigcommerce/checkout-sdk-js/commit/0324e2f439633e4fdd52869a717a0ade07f2719c))
+
 ## [1.107.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.106.1...v1.107.0) (2020-10-14)
 
 
