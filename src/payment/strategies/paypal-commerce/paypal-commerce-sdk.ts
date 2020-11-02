@@ -182,6 +182,7 @@ export interface PaypalCommerceInitializationData {
     isPayPalCreditAvailable?: boolean;
     isProgressiveOnboardingAvailable?: boolean;
     clientToken?: string;
+    country?: string;
 }
 
 export type DisableFundingType = Array<'credit' | 'card'>;
@@ -198,4 +199,5 @@ export interface PaypalCommerceScriptParams  {
     commit?: boolean;
     intent?: 'capture' | 'authorize';
     components?: ComponentsScriptType;
+    'buyer-country'?: string;
 }
