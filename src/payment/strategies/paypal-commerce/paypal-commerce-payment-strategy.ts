@@ -110,11 +110,12 @@ export default class PaypalCommercePaymentStrategy implements PaymentStrategy {
     }
 
     private _getOptionsScript(initializationData: PaypalCommerceInitializationData, currencyCode: Cart['currency']['code']): PaypalCommerceScriptParams {
-        const { clientId, intent, merchantId } = initializationData;
+        const { clientId, intent, merchantId, country } = initializationData;
 
         return {
             'client-id': clientId,
             'merchant-id': merchantId,
+            'buyer-country': country,
             commit: true,
             currency: currencyCode,
             intent,
