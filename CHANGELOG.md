@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.110.1-alpha.271f6470074fcbb40bed5b4d304f843a549fdbe4](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.107.1...v1.110.1-alpha.271f6470074fcbb40bed5b4d304f843a549fdbe4) (2020-11-04)
+
+
+### Features
+
+* **checkout:** INT-3174 Added title as attribute of flashMessage ([73cbe48](https://github.com/bigcommerce/checkout-sdk-js/commit/73cbe487e86645348df49b265e4487c430d82053))
+* **payment:** PAYPAL-702 Add alternative payment methods ([1858a9e](https://github.com/bigcommerce/checkout-sdk-js/commit/1858a9e75c9fec994652271aca6341e97b3a5a4d))
+* **payment:** PAYPAL-702 Add FundingKeyResolver ([b37c736](https://github.com/bigcommerce/checkout-sdk-js/commit/b37c736c392ef6cac992bd7c5e5ffed4f9e42c45))
+* **payment:** PAYPAL-702 Bump bigpay client ([f812f43](https://github.com/bigcommerce/checkout-sdk-js/commit/f812f43fcc49a15617e10f55c7f76ad915f51516))
+* **payment:** PAYPAL-702 Change FundingKeyResolver and add method_id ([e26c3cf](https://github.com/bigcommerce/checkout-sdk-js/commit/e26c3cf75245293a58f1f27239c9c2193a226b74))
+* **payment:** PAYPAL-702 test ([271f647](https://github.com/bigcommerce/checkout-sdk-js/commit/271f6470074fcbb40bed5b4d304f843a549fdbe4))
+* **payment:** PAYPAL-746 Change style for sbp on checkout ([6b3c4a0](https://github.com/bigcommerce/checkout-sdk-js/commit/6b3c4a0edef7a5c057e78893362a4641ed4290e8))
+
 ## [1.110.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.109.0...v1.110.0) (2020-11-03)
 
 
