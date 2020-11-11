@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.112.1-alpha.9f8a35a3d959bb4df2c4d12480b67edd035b79b3](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.107.1...v1.112.1-alpha.9f8a35a3d959bb4df2c4d12480b67edd035b79b3) (2020-11-11)
+
+
+### Features
+
+* **checkout:** INT-3174 Added title as attribute of flashMessage ([73cbe48](https://github.com/bigcommerce/checkout-sdk-js/commit/73cbe487e86645348df49b265e4487c430d82053))
+* **payment:** PAYPAL-702 Add alternative payment methods ([#1005](https://github.com/bigcommerce/checkout-sdk-js/issues/1005)) ([ea04c2d](https://github.com/bigcommerce/checkout-sdk-js/commit/ea04c2debc1a51f07242caa25b3af1ca72742dba))
+* **payment:** PAYPAL-702 Bump bigpay client ([f812f43](https://github.com/bigcommerce/checkout-sdk-js/commit/f812f43fcc49a15617e10f55c7f76ad915f51516))
+* **payment:** PAYPAL-746 Change style for sbp on checkout ([6b3c4a0](https://github.com/bigcommerce/checkout-sdk-js/commit/6b3c4a0edef7a5c057e78893362a4641ed4290e8))
+* **payment:** PAYPAL-759 Add docs for initialize PPCP ([#1008](https://github.com/bigcommerce/checkout-sdk-js/issues/1008)) ([492858d](https://github.com/bigcommerce/checkout-sdk-js/commit/492858d7e7a9ea108860127834493bd742caa4f5))
+* **payment:** PAYPAL-839 Move method_id in execute ([9f8a35a](https://github.com/bigcommerce/checkout-sdk-js/commit/9f8a35a3d959bb4df2c4d12480b67edd035b79b3))
+
+
+### Bug Fixes
+
+* **payment:** INT-3311 klarna can checkout with coupons ([375a2c3](https://github.com/bigcommerce/checkout-sdk-js/commit/375a2c3946aae0d415812913785eb663a75a256d))
+
 ## [1.112.0](https://github.com/bigcommerce/checkout-sdk-js/compare/v1.111.0...v1.112.0) (2020-11-09)
 
 
